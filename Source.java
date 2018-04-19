@@ -20,22 +20,21 @@ public class SourceViewer {
         int startSubString = -10;
         int endSubString = -10;   
       
-        //input for originating link
         System.out.println("This program is made to view, store, and search through web data.");  
         System.out.print("Enter webpage URL: ");
         
         Scanner linkInput = new Scanner(System.in);
-            String link = linkInput.next();//User inputs link 
-                URL webpage = new URL("https://" + link);//User does not need to insert "https://" before link. In the below code, will this become a problem?
-                        URLConnection connector = webpage.openConnection();//Returns a connection that is referred to by the URL 
-                InputStream input2 = connector.getInputStream();//Used to read and write to the data represented by the URL
+            String link = linkInput.next();
+                URL webpage = new URL("https://" + link);
+                        URLConnection connector = webpage.openConnection();
+                InputStream input2 = connector.getInputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(input2));   
  
         String source;
         PrintWriter webdata = new PrintWriter("webSource.txt");
-
+        
         System.out.println();
-        int lineCounter = 1;//Declaring a lineCounter for the links
+        int lineCounter = 1;
         BufferedReader inFile0;
  
         while ((source = in.readLine()) != null) {
